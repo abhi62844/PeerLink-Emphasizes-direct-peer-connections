@@ -1,5 +1,5 @@
 
-run make which would build the executables
+Run make which would build the executables
 Then, 
 Run Tracker first with
 ./tracker <ip> <port>
