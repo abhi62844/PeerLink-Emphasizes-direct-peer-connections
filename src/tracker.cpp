@@ -29,11 +29,11 @@ void peer_input()
     }
 
 }
+
 int main(int argc, char const *argv[])
 {
-    if(argc!=3)
-    {
-        cerr<<"incorrect amount of arguments";
+    if(argc!=3) {
+        cerr<<"incorrect amount of arguments <trackerip> <trackerport>";
         exit(1);
     }
     
@@ -72,6 +72,7 @@ if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0)
         cerr<<"listen failed";
         exit(1);
     }
+    cout<<"Tracker Server listening on : "<<ip<<" "<<port<<endl;    
     fcntl(server_fd, F_SETFL, O_NONBLOCK); 
     thread input_thread(peer_input);
     while(running) {

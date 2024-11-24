@@ -79,13 +79,13 @@ int main(int argc, char const *argv[]){
             continue;
             
         }
-        else if(b=="download_file")
-        {      cout<<s<<endl;
+        else if(b=="download_file") {      
+            cout<<s<<endl;
             ssize_t last=s.find_last_of(" ");
             ssize_t secondlast=s.find_last_of(" ",last-1);
             dstn=s.substr(last+1)+s.substr(secondlast+1,last-secondlast-1);
             cout<<dstn<<endl;
-             ssize_t first_space = s.find(" "); 
+            ssize_t first_space = s.find(" "); 
             if (first_space == static_cast<ssize_t>(string::npos)) {
                 group_name=" ";
             }
@@ -131,7 +131,7 @@ int main(int argc, char const *argv[]){
            
             string first_word=msg.substr(0,msg.find("\n"));
             buffer[bytesReceived]='\0';
-                if(first_word=="download")
+            if(first_word=="download")
                 {       
                     
                 vector<thread> t;

@@ -681,7 +681,8 @@ void handleClient(int client_socket) {
                     }
                 }
                 else if(input[0]=="download_file")
-                {   string peerdetails="";
+                {   
+                    string peerdetails="";
                     int a = download_file(input,client_socket,peerdetails);
                     if(a==-1)
                     {
