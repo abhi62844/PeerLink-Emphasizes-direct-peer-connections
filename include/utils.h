@@ -9,8 +9,8 @@
 using namespace std;
 
 #define BUFFER_SIZE 256
-#define CHUNK_SIZE 8192
-#define PIECE_SIZE 524288
+#define CHUNK_SIZE 200
+#define PIECE_SIZE 200
 
 const int MAX_RETRIES = 3;
 const int RETRY_DELAY_MS = 1000;
