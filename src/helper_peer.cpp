@@ -246,6 +246,7 @@ void download(int piece_number,int port, string ip, string path, string hash, st
     
     if (total_bytes_received == PIECE_SIZE && (shapiece(path,piece_number)==hash)) {
             success = true;
+            cout<<"port"<<port<<"ip"<<ip<<"piece number"<<piece_number<<endl;
            
         } else {
             retries++;
