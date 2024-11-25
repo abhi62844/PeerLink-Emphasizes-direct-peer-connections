@@ -121,7 +121,7 @@ int main(int argc, char const *argv[]){
         if (s.empty())
             continue;
         send(sock_fd, s.c_str(), s.size(), 0);
-        char buffer[PIECE_SIZE];
+        char buffer[893228];
         memset(buffer,0,sizeof(buffer));
         int bytesReceived;
         bytesReceived=recv(sock_fd,buffer,sizeof(buffer)-1,0);
@@ -134,7 +134,6 @@ int main(int argc, char const *argv[]){
             if(first_word=="download")
                 {       
                     
-                vector<thread> t;
                 int source_port;
                 int file_size;
                 string file_hash;
@@ -210,12 +209,9 @@ int main(int argc, char const *argv[]){
                     const set<piece_info>& pieces = piece_map[piece_number];
                     auto it = next(pieces.begin(), rand() % pieces.size());
                     const piece_info& selected_peer = *it;
-                    t.emplace_back(download,piece_number,selected_peer.client_port,selected_peer.client_ip,selected_peer.file_path,selected_peer.hash,dstn,sock_fd,group_name);
+                    download(piece_number,selected_peer.client_port,selected_peer.client_ip,selected_peer.file_path,selected_peer.hash,dstn,sock_fd,group_name);
                 }
-                    for (auto& thread : t) 
-                    {
-                        thread.join();
-                    }
+      
                 if(file_hash==computeHash(dstn))
                 {
                     cout<<"download completed\n";
